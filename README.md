@@ -1,6 +1,6 @@
-# 🚀 DEMO Microservice with Kubernetes, HPA, and Monitoring
+# DEMO Microservice with Kubernetes, HPA, and Monitoring
 
-## ✅ Project Overview
+## Project Overview
 This project demonstrates a simple **Demo microservice** deployed on **Kubernetes** with the following DevOps practices:
 - Containerization using **Docker**
 - Deployment on **Kubernetes**
@@ -10,7 +10,7 @@ This project demonstrates a simple **Demo microservice** deployed on **Kubernete
 
 The microservice exposes a single endpoint:
 GET /
-Response: {"message": "Hello, Vivek! Your microservice is running 🚀"}
+Response: {"message": "Hello, Vivek! Your microservice is running"}
 
 
 
@@ -90,15 +90,13 @@ This will trigger the HPA to increase replicas.
 
 📊 How to Access Grafana Dashboards
 1. Install Prometheus + Grafana via Helm
-bash
-Copy code
+
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 helm install prometheus prometheus-community/kube-prometheus-stack
 
 2. Get Grafana Password
-bash
-Copy code
+
 kubectl get secret prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 Default username = admin
 Password = (value from above)
@@ -106,8 +104,6 @@ Password = (value from above)
 3. Access Grafana
 Port-forward service:
 
-bash
-Copy code
 kubectl port-forward svc/prometheus-grafana 3000:80
 Open http://localhost:3000 and log in.
 
